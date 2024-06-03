@@ -1,0 +1,77 @@
+import database_logic
+import tkinter as tk
+from tkinter import ttk
+
+class GUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Sistema de Gestión - Menú Principal")
+
+        # Crear menú principal
+        menubar = tk.Menu(root)
+        root.config(menu=menubar)
+
+        # Crear menús principales
+        clientes_menu = tk.Menu(menubar, tearoff=0)
+        pedidos_menu = tk.Menu(menubar, tearoff=0)
+        productos_menu = tk.Menu(menubar, tearoff=0)
+        inventario_menu = tk.Menu(menubar, tearoff=0)
+        decorativa_menu = tk.Menu(menubar, tearoff=0)
+        configuracion_menu = tk.Menu(menubar, tearoff=0)
+
+        # Agregar menús principales a la barra de menú
+        menubar.add_cascade(label="Gestión de Clientes", menu=clientes_menu)
+        menubar.add_cascade(label="Gestión de Pedidos", menu=pedidos_menu)
+        menubar.add_cascade(label="Gestión de Productos", menu=productos_menu)
+        menubar.add_cascade(label="Gestión de Inventario", menu=inventario_menu)
+        menubar.add_cascade(label="Gestión Decorativa", menu=decorativa_menu)
+        menubar.add_cascade(label="Configuración", menu=configuracion_menu)
+        menubar.add_command(label="Salir", command=root.quit)
+
+        # Submenús para Gestión de Clientes
+        clientes_menu.add_command(label="Agregar cliente")
+        clientes_menu.add_command(label="Modificar cliente")
+        clientes_menu.add_command(label="Eliminar cliente")
+        clientes_menu.add_command(label="Listar todos los clientes")
+        clientes_menu.add_command(label="Buscar cliente por nombre o listar todos los clientes")
+
+        # Submenús para Gestión de Pedidos
+        pedidos_menu.add_command(label="Agregar pedido")
+        pedidos_menu.add_command(label="Finalizar pedido")
+        pedidos_menu.add_command(label="Revertir pedido")
+        pedidos_menu.add_command(label="Eliminar pedido")
+        pedidos_menu.add_command(label="Consultar pedidos de un cliente")
+        pedidos_menu.add_command(label="Consultar todos los pedidos")
+        pedidos_menu.add_command(label="Calcular ganancias por cliente")
+        pedidos_menu.add_command(label="Calcular ganancias totales")
+
+        # Submenús para Gestión de Productos
+        productos_menu.add_command(label="Agregar producto de venta")
+        productos_menu.add_command(label="Agregar producto de servicio")
+        productos_menu.add_command(label="Modificar producto")
+        productos_menu.add_command(label="Eliminar producto")
+        productos_menu.add_command(label="Listar todos los productos")
+        productos_menu.add_command(label="Buscar y modificar producto por nombre")
+
+        # Submenús para Gestión de Inventario
+        inventario_menu.add_command(label="Agregar producto a inventario")
+        inventario_menu.add_command(label="Revisar inventario")
+        inventario_menu.add_command(label="Modificar producto de inventario")
+
+        # Submenús para Gestión Decorativa
+        decorativa_menu.add_command(label="Calcular ganancias por cliente")
+        decorativa_menu.add_command(label="Calcular ganancias totales")
+        decorativa_menu.add_command(label="Calcular costos por cliente")
+        decorativa_menu.add_command(label="Calcular costos totales")
+        decorativa_menu.add_command(label="Mostrar total de ganancias y costos")
+
+        # Submenús para Configuración
+        configuracion_menu.add_command(label="Reiniciar base de datos")
+
+def run():
+    root = tk.Tk()
+    app = GUI(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    run()
